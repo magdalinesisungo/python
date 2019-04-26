@@ -37,7 +37,42 @@ class MpesaAccount:
 			print(s)
 
 	def give_loans(self,amount):
-		if 
+		if len(self.deposits)>=5 and amount<1/3*sum(self.deposits) and self.loan==0:
+			self.loan=self.loan+amount
+			print ("Hello {}, you have get {}".format(self.name, amount))
+		else:
+			print("Hello {}, you cannot afford the loan".format(self.name))
+
+	def pay_loan(self,amount):
+		if self.loan==0:
+			print("you do not have a loan")
+		elif amount<self.loan:
+			self.loan=self.loan-amount
+			print("Hello {}you have paid part of your loan,{}. your remaining balance is {}".format(self.name ,amount,self.loan))
+		elif amount==self.loan:
+			self.loan=self.loan-amount
+			print("you have paid your all your loan")
+		elif amount>self.loan:
+			more=amount-self.loan
+			self.balance= more+self.balance
+			self.loan=amount-self.loan-more
+			print("Hello {} you have paid more than is required, your new balance is{}".format(self.name,self.balance))
 		
 			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
